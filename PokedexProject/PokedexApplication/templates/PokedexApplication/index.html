@@ -8,8 +8,18 @@
     <h1>{{title}}</h1>
     <ul>
         {% for pokemon in pokemons_list %}
-        <li>{{pokemon}}</li>
+        <li>{{pokemon.french_name}} || {{pokemon.id}}</li>
+        <a href="{% url 'pokemon' pokemon.id %}">
+            <img src="{{pokemon.image}}">
+        </a>
+
         {% endfor %}
     </ul>
+    <a href="?offset={{ prev_offset }}&limit={{ limit }}">
+        <button>Précédent</button>
+    </a>
+    <a href="?offset={{ next_offset }}&limit={{ limit }}">
+        <button>Suivant</button>
+    </a>
 </body>
 </html>
